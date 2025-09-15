@@ -19,7 +19,7 @@ jobs:
         run: pip install requests
 
       - name: Run proxy checker
-        run: python your_script_name.py
+        run: python prox.py
 
       - name: Commit alive_proxies.txt
         run: |
