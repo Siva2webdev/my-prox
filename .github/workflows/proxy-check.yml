@@ -1,10 +1,13 @@
 name: Proxy Checker
 
-on: workflow_dispatch  # lets you run manually from GitHub Actions tab
+on:
+  workflow_dispatch:   # run manually when you want
 
 jobs:
   run-proxy-checker:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write   # 👈 gives push access to the repo
 
     steps:
       - name: Checkout repository
@@ -13,13 +16,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'   # or 3.11 if you prefer
+          python-version: '3.10'
 
       - name: Install dependencies
         run: pip install requests
 
       - name: Run proxy checker
-        run: python prox.py
+        run: python your_script_name.py
 
       - name: Commit alive_proxies.txt
         run: |
